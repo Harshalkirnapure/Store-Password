@@ -1,0 +1,83 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    color: #ecf0f1;
+    text-align: center;
+    padding: 20px;
+}
+
+.container, .password-list-container {
+    max-width: 500px;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    margin-top: 20px;
+}
+
+h1, h2 {
+    font-weight: 600;
+}
+
+input {
+    width: calc(100% - 20px);
+    padding: 12px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+}
+
+button {
+    background: #2980b9;
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #1f6690;
+    transform: scale(1.05);
+}
+
+.password-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.password-list li {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.password-list li:hover {
+    transform: scale(1.02);
+}
+
+.password-list button {
+    background: #e74c3c;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.password-list button:hover {
+    background: #c0392b;
+    transform: scale(1.1);
+}
