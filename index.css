@@ -1,83 +1,161 @@
+:root {
+    --bg: #f4f4f4;
+    --fg: #2c3e50;
+    --accent: #3498db;
+    --danger: #e74c3c;
+    --card: rgba(255, 255, 255, 0.8);
+}
+
+body.dark {
+    --bg: #2c3e50;
+    --fg: #ecf0f1;
+    --accent: #2980b9;
+    --danger: #c0392b;
+    --card: rgba(255, 255, 255, 0.1);
+}
+
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #2c3e50, #34495e);
-    color: #ecf0f1;
-    text-align: center;
+    background: var(--bg);
+    color: var(--fg);
     padding: 20px;
+    transition: 0.4s;
 }
 
-.container, .password-list-container {
+.container {
     max-width: 500px;
     margin: auto;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
-    margin-top: 20px;
+    background: var(--card);
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(12px);
 }
 
-h1, h2 {
-    font-weight: 600;
+h1 {
+    margin-bottom: 20px;
+    font-size: 28px;
+    text-align: center;
 }
 
-input {
-    width: calc(100% - 20px);
-    padding: 12px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    outline: none;
+.password-form input,
+.password-controls input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: rgba(0, 0, 0, 0.05);
+  color: var(--fg);
+  outline: none;
+  box-sizing: border-box; /* Ensures padding doesn't affect the width */
 }
 
-button {
-    background: #2980b9;
-    color: white;
-    border: none;
-    padding: 12px;
+
+input::placeholder {
+    color: gray;
+}
+
+.password-form button {
     width: 100%;
+    padding: 12px;
+    background-color: var(--accent);
+    border: none;
+    color: white;
+    font-weight: bold;
     border-radius: 8px;
     cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
+    margin-top: 10px;
     transition: 0.3s;
 }
 
-button:hover {
-    background: #1f6690;
-    transform: scale(1.05);
+.password-form button:hover {
+    background-color: #1f6690;
+    transform: scale(1.03);
 }
 
+.strength {
+    text-align: left;
+    font-size: 14px;
+    color: var(--accent);
+}
+
+.password-list {
+    max-height: 400px; /* Set the maximum height for the password list container */
+    overflow-y: auto;  /* Enable vertical scrolling if content overflows */
+  }
+  
 .password-list ul {
     list-style: none;
     padding: 0;
+    margin-top: 20px;
 }
 
 .password-list li {
-    background: rgba(255, 255, 255, 0.2);
+    background: var(--card);
+    margin-bottom: 10px;
     padding: 12px;
-    margin: 8px 0;
-    border-radius: 8px;
+    border-radius: 10px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: 0.3s;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
 }
 
-.password-list li:hover {
-    transform: scale(1.02);
+li span.password {
+    font-weight: bold;
+    color: #f1c40f;
 }
 
-.password-list button {
-    background: #e74c3c;
-    padding: 6px 12px;
-    border-radius: 5px;
+li .actions {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.actions button {
+    padding: 6px 10px;
+    border: none;
+    border-radius: 6px;
     cursor: pointer;
     transition: 0.3s;
+    font-size: 13px;
 }
 
-.password-list button:hover {
-    background: #c0392b;
-    transform: scale(1.1);
+.copy-btn {
+    background: var(--accent);
+    color: #fff;
+}
+
+.show-btn {
+    background: #9b59b6;
+    color: #fff;
+}
+
+.delete-btn {
+    background: var(--danger);
+    color: white;
+}
+
+.actions button:hover {
+    transform: scale(1.05);
+}
+
+.theme-toggle {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 6px;
+    display: none;
+    z-index: 100;
 }
